@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: sap_adw
+    description: Fonte do SAP do Adventure Works
+    schema: sap_adw
+    tables:
+
+      ##### ADDRESS
+      - name: address
+        description: Enderecos
+        columns:
+          - name: addressid
+            tests:
+              - unique
+              - not_null
+          - name: city
+          - name: stateprovinceid
+
+      ##### STATEPROVINCE
+      - name: stateprovince
+        description: Estados relacionados a enderecos e paises
+        columns:
+          - name: stateprovinceid
+            tests:
+              - unique
+              - not_null
+          - name: name
+          - name: countryregioncode
+                  
