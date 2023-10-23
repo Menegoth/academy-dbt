@@ -3,7 +3,7 @@ with
         select
             cast(stateprovinceid as int) as id_estado,
             cast(name as string) as nome_estado,
-            cast(countryregioncode as string) as pais_estado,
+            cast(countryregioncode as string) as codigo_pais,
         from {{ source('sap_adw', 'stateprovince') }}
     )
 

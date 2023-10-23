@@ -15,7 +15,11 @@ sources:
               - unique
               - not_null
           - name: city
+            tests: 
+              - not_null
           - name: stateprovinceid
+            tests: 
+              - not_null
 
       ##### STATEPROVINCE
       - name: stateprovince
@@ -26,5 +30,115 @@ sources:
               - unique
               - not_null
           - name: name
+            tests: 
+              - not_null
           - name: countryregioncode
-                  
+            tests: 
+              - not_null
+
+      ##### COUNTRYREGION
+      - name: countryregion
+        description: Paises usando um codigo de duas letras
+        columns:
+          - name: countryregioncode
+            tests:
+              - unique
+              - not_null
+          - name: name
+            tests: 
+              - not_null
+
+      ##### PRODUCT
+      - name: product
+        description: Lista de produtos
+        columns:
+          - name: productid
+            tests:
+              - unique
+              - not_null
+          - name: name
+            tests: 
+              - not_null
+
+      ##### CREDITCARD
+      - name: creditcard
+        description: Lista de cartoes de credito
+        columns:
+          - name: creditcardid
+            tests:
+              - unique
+              - not_null
+          - name: cardtype
+            tests: 
+              - not_null
+
+      ##### SALESREASON
+      - name: salesreason
+        description: Lista de razoes de venda
+        columns:
+          - name: salesreasonid
+            tests:
+              - unique
+              - not_null
+          - name: name
+            tests: 
+              - not_null
+            
+
+      ##### SALESORDERHEADERSALESREASON
+      - name: salesorderheadersalesreason
+        description: Usado para pegar a razao de venda de uma venda
+        columns:
+          - name: salesorderid
+            tests:
+              - not_null
+          - name: salesreasonid
+            tests:
+              - not_null
+
+      ##### SALESORDERHEADER
+      - name: salesorderheader
+        description: Cabecalho de vendas
+        columns:
+          - name: salesorderid
+            tests:
+              - unique
+              - not_null
+          - name: orderdate
+            tests:
+              - not_null
+          - name: status
+            tests:
+              - not_null
+          - name: customerid
+            tests:
+              - not_null
+          - name: billtoaddressid
+            tests:
+              - not_null
+          - name: creditcardid
+          - name: totaldue
+            tests:
+              - not_null
+
+      ##### CUSTOMER
+      - name: customer
+        description: Lista de clientes
+        columns:
+          - name: customerid
+            tests:
+              - unique
+              - not_null
+          - name: storeid         
+
+      ##### STORE
+      - name: store
+        description: Lista de lojas
+        columns:
+          - name: businessentityid
+            tests:
+              - unique
+              - not_null
+          - name: name
+            tests:
+              - not_null       
