@@ -121,6 +121,30 @@ sources:
             tests:
               - not_null
 
+      ##### SALSEORDERDETAIL
+      - name: salesorderdetail
+        description: Detalhes de vendas
+        columns:
+          - name: salesorderdetailid
+            tests:
+              - unique
+              - not_null
+          - name: salesorderid
+            tests:
+              - not_null
+          - name: orderqty
+            tests:
+              - not_null  
+          - name: productid
+            tests:
+              - not_null
+          - name: unitprice
+            tests:
+              - not_null
+          - name: unitpricediscount
+            tests:
+              - not_null          
+
       ##### CUSTOMER
       - name: customer
         description: Lista de clientes
