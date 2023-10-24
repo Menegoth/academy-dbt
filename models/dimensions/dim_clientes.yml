@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: dim_clientes
+    description: Dimensao com informacao de clientes
+    columns:
+      - name: pk_cliente
+        description: Chave primaria da dimensao clientes
+        tests:
+          - unique
+          - not_null
+      - name: id_cliente
+        description: ID do cliente
+        tests:
+          - unique
+          - not_null
+      - name: id_loja
+        description: ID da loja
+      - name: nome_loja
+        description: nome da loja
+              

@@ -8,4 +8,3 @@ with
 
 select * 
 from fonte_clientes
-where id_loja is not null

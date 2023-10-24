@@ -1,5 +1,5 @@
 with 
-    fonte_cabecalho as (
+    fonte_vendacabecalho as (
         select 
             cast(salesorderid as int) as id_venda,
             cast(DATE(orderdate) as date) as data_venda,
@@ -11,5 +11,4 @@ with
     )
 
 select *
-from fonte_cabecalho
-where id_cartao is not null
+from fonte_vendacabecalho
