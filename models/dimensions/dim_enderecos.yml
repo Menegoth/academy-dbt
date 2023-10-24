@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: dim_enderecos
+    description: Dimensao com informacao de enderecos
+    columns:
+      - name: pk_endereco
+        description: Chave primaria da dimensao enderecos
+        tests:
+          - unique
+          - not_null
+      - name: id_endereco
+        description: ID do endereco
+        tests:
+          - unique
+          - not_null
+      - name: cidade_endereco
+        description: Nome da cidade
+        tests:
+          - not_null
+      - name: id_estado
+        description: ID do estado
+        tests:
+          - not_null
+      - name: nome_estado
+        description: Nome do estado
+        tests:
+          - not_null
+      - name: codigo_pais
+        description: Codigo do pais
+        tests:
+          - not_null
+      - name: nome_pais
+        description: Nome do pais
+        tests:
+          - not_null

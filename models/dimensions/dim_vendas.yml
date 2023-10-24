@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: dim_vendas
+    description: Dimensao com informacao de vendas
+    columns:
+      - name: pk_venda
+        description: Chave primaria da dimensao vendas. id_venda e id_produto concatenados e ordenados.
+        tests:
+          - unique
+          - not_null
+      - name: id_venda
+        description: ID da venda
+        tests:
+          - not_null
+      - name: id_cliente
+        description: ID do cliente
+        tests:
+          - not_null
+      - name: id_endereco
+        description: ID do endereco
+        tests:
+          - not_null
+      - name: total_venda
+        description: Total da venda
+        tests:
+          - not_null
+      - name: id_vendadetalhe
+        description: ID do detalhe de venda
+        tests:
+          - not_null
+      - name: quantidade_vendadetalhe
+        description: quantidade de unidades vendidas
+        tests:
+          - not_null
+      - name: id_produto
+        description: ID do produto comprado
+        tests:
+          - not_null
+      - name: preco_unidade
+        description: Preco por unidade de venda
+        tests:
+          - not_null
+      - name: disconto_unidade
+        description: Diconto por unidade do produto comprado
+        tests:
+          - not_null
+      - name: id_cartao
+        description: ID do cartao de credito       
+      - name: tipo_cartao
+        description: Tipo do cartao de credito      
+      - name: id_razao
+        description: ID da razao de venda       
+      - name: nome_razao
+        description: Nome da razao de venda
+
+        

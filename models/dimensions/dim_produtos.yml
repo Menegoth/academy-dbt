@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: dim_produtos
+    description: Dimensao com informacao de produtos
+    columns:
+      - name: pk_produto
+        description: Chave primaria da dimensao produtos
+        tests:
+          - unique
+          - not_null
+      - name: id_produto
+        description: ID do produto
+        tests:
+          - unique
+          - not_null
+      - name: nome_produto
+        description: Nome do produto
+        tests:
+          - not_null
+              
+
+
+
