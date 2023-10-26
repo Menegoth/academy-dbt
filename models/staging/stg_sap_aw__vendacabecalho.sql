@@ -7,6 +7,7 @@ with
             cast(billtoaddressid as int) as id_endereco,
             cast(creditcardid as int) as id_cartao,
             cast(totaldue as decimal) as total_venda,
+            cast(status as int) as status_venda
         from {{ source("sap_adw", 'salesorderheader') }}
     )
 

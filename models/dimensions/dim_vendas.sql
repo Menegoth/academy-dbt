@@ -31,6 +31,7 @@ with
             stg_vendacabecalho.data_venda,
             stg_vendacabecalho.id_cliente,
             stg_vendacabecalho.id_endereco,
+            stg_vendacabecalho.status_venda,
             --stg_vendacabecalho.id_cartao,
             stg_vendacabecalho.total_venda,
             --VENDADETALHE,
