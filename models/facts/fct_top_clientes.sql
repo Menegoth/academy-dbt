@@ -72,8 +72,32 @@ with
             dim_vendas.id_cliente = dim_clientes.id_cliente
         join dim_enderecos on
             dim_vendas.id_endereco = dim_enderecos.id_endereco
+    ),
+
+    transformacoes as (
+        select 
+            sum(total_venda) as total_negociado,
+            nome_loja,
+            nome_produto,
+            tipo_cartao,
+            nome_razao,
+            data_venda,
+            status_venda,
+            cidade_endereco,
+            nome_estado,
+            nome_pais
+        from join_tabelas
+        group by
+            nome_loja,
+            nome_produto,
+            tipo_cartao,
+            nome_razao,
+            data_venda,
+            status_venda,
+            cidade_endereco,
+            nome_estado,
+            nome_pais
     )
 
 select *
-from dim_clientes
-where id_cliente = 11000
+from transformacoes

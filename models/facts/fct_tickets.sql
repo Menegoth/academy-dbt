@@ -67,7 +67,6 @@ with
 
     ticket_medio as (
         select
-            count(*),
             AVG(ticket) as ticket_medio,
             nome_produto,
             mes,

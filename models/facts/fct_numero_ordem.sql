@@ -2,9 +2,9 @@ with
     dim_vendas as (
         select
             pk_venda,
-            id_produto,
             id_cliente,
             id_endereco,
+            id_produto,
             total_venda,
             quantidade_vendadetalhe,
             tipo_cartao,
@@ -12,12 +12,13 @@ with
             data_venda,
             status_venda
         from {{ ref('dim_vendas') }}
-        where nome_razao is not null
     ),
 
     dim_produtos as (
         select
-            *
+            pk_produto,
+            id_produto,
+            nome_produto
         from {{ ref('dim_produtos') }}
     ),
 
@@ -67,11 +68,11 @@ with
             dim_enderecos.nome_estado,
             dim_enderecos.nome_pais 
         from dim_vendas
-        left join dim_produtos on
+        join dim_produtos on
             dim_vendas.id_produto = dim_produtos.id_produto
-        left join dim_clientes on   
+        join dim_clientes on   
             dim_vendas.id_cliente = dim_clientes.id_cliente
-        left join dim_enderecos on
+        join dim_enderecos on
             dim_vendas.id_endereco = dim_enderecos.id_endereco
     ),
 
