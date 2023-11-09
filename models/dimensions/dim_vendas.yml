@@ -21,6 +21,10 @@ models:
         description: ID do endereco
         tests:
           - not_null
+      - name: status_venda
+        description: ID do endereco
+        tests:
+          - not_null
       - name: total_venda
         description: Total da venda
         tests:
