@@ -6,6 +6,8 @@ with
             id_endereco,
             id_produto,
             total_venda,
+            preco_unidade,
+            disconto_unidade,
             quantidade_vendadetalhe,
             tipo_cartao,
             nome_razao,
@@ -48,6 +50,8 @@ with
             --dim_vendas.id_cliente,
             --dim_vendas.id_endereco,
             dim_vendas.total_venda,
+            dim_vendas.preco_unidade,
+            dim_vendas.disconto_unidade,
             dim_vendas.quantidade_vendadetalhe,
             dim_vendas.tipo_cartao,
             dim_vendas.nome_razao,
@@ -74,6 +78,13 @@ with
             dim_vendas.id_cliente = dim_clientes.id_cliente
         join dim_enderecos on
             dim_vendas.id_endereco = dim_enderecos.id_endereco
+    ),
+
+    transformacoes as (
+        select
+            (preco_unidade - (preco_unidade * disconto_unidade)) * quantidade_vendadetalhe as ticket,
+            *
+        from join_tabelas
     )
 
-select * from join_tabelas
+select * from transformacoes
