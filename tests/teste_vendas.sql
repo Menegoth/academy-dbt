@@ -1,7 +1,7 @@
 select
-    pk_venda,
-    id_cliente
-from {{ ref('dim_vendas') }}
-where pk_venda = 1
-group by pk_venda, id_cliente
-having not(id_cliente = 29825)
+    sk_venda,
+    fk_cliente
+from {{ ref('fct_vendas') }}
+where sk_venda = 1
+group by sk_venda, fk_cliente
+having not(fk_cliente = 29825)
