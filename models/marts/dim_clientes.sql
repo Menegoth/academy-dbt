@@ -12,10 +12,10 @@ with
     join_tabelas as (
         select
             --CLIENTE
-            stg_clientes.id_cliente,
+            stg_clientes.id_cliente as fk_cliente,
             --stg_clientes.id_loja,
             --LOJA
-            stg_lojas.id_loja,
+            stg_lojas.id_loja as fk_loja,
             stg_lojas.nome_loja,
         from stg_clientes
         left join stg_lojas on
@@ -24,7 +24,7 @@ with
     
     criar_chave as (
         select
-            row_number() over(order by id_cliente) as pk_cliente,
+            row_number() over(order by fk_cliente) as sk_cliente,
             *
         from join_tabelas
     )

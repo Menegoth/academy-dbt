@@ -17,15 +17,15 @@ with
     join_tabelas as (
         select 
             --ENDERECOS
-            stg_enderecos.id_endereco,
+            stg_enderecos.id_endereco as fk_endereco,
             stg_enderecos.cidade_endereco,
             --stg_enderecos.id_estado,
             --ESTADOS
-            stg_estados.id_estado,
+            stg_estados.id_estado as fk_estado,
             stg_estados.nome_estado,
             --stg_estados.codigo_pais,
             --PAISES
-            stg_paises.codigo_pais,
+            stg_paises.codigo_pais as fk_codigo_pais,
             stg_paises.nome_pais
         from stg_enderecos
         left join stg_estados on
@@ -36,7 +36,7 @@ with
 
     criar_chave as (
         select
-            row_number() over(order by id_endereco) as pk_endereco,
+            row_number() over(order by fk_endereco) as sk_endereco,
             *
         from join_tabelas   
     )

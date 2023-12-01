@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: fct_final
+    columns:
+        - name: ticket
+          description: ticket da venda
+          tests:
+            - not_null
+        - name: sk_venda
+          description: surrogate key da tabela vendas
+          tests:
+            - unique
+            - not_null
+        - name: total_venda
+          description: total vendido
+        - name: preco_unidade
+          description: preco por unidade vendido
+        - name: disconto_unidade
+          description: disconto por unidade
+        - name: quantidade_vendadetalhe
+          description: quantidade vendida
+        - name: tipo_cartao
+          description: tipo de cartao de credito usado
+        - name: nome_razao
+        - name: data_venda
+          description: data de venda
+        - name: status_venda
+          description: status de venda
+        - name: sk_produto
+          description: surrogate key da tabela produtos
+          tests:
+            - not_null
+        - name: fk_produto
+          description: ID do produto
+          tests:
+            - not_null
+        - name: nome_produto
+          description: nome do produto
+        - name: sk_cliente
+          description: surrogate key da tabela cliente
+          tests:
+            - not_null
+        - name: fk_cliente
+          description: ID do cliente
+          tests:
+            - not_null
+        - name: nome_loja
+          description: nome do cliente
+        - name: sk_endereco
+          description: surrogate key da tabela endereco
+          tests:
+            - not_null
+        - name: fk_endereco
+          description: id do endereco
+          tests:
+            - not_null
+        - name: cidade_endereco
+          description: nome da cidade
+        - name: nome_estado
+          description: nome do estado
+        - name: nome_pais
+          description: nome do pais
+               

@@ -1,7 +1,7 @@
 select
-    pk_endereco,
+    sk_endereco,
     cidade_endereco
 from {{ ref('dim_enderecos') }}
-where pk_endereco = 1
-group by pk_endereco, cidade_endereco
+where sk_endereco = 1
+group by sk_endereco, cidade_endereco
 having not(cidade_endereco = 'Bothell')
